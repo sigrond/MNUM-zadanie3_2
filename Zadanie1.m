@@ -22,6 +22,7 @@ for i=a:step:b-step
         plot(ax,p1,0,'<g');
         plot(ax,p2,0,'>g');
         [X0,Xi]=M_Bisekcji(p1,p2,f);
+        [X0,Xi]=M_siecznych(p1,p2,f);
         jb=jb+1;
         XB(jb)=X0;
         plot(ax,X0,f(X0),'or');

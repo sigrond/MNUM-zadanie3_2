@@ -1,17 +1,23 @@
-function [ X ] = M_Bisekcji( a0, b0, f )
+function [ X, Xiteracje ] = M_Bisekcji( a0, b0, f )
 %M_Bisekcji znajdowanie pierwiastków metod¹ bisekcji
 %   a0, b0 - przedzia³
 %   f - funkcja
-%   X - miejsca zerowe
+%   X - miejsce zerowe
+%   Xiteracje - punkty w kolejnych iteracjach
 a=a0;
 b=b0;
 delta=0.0001;%dok³adnoœæ rozwi¹zania
 epsylon=0.0001;%d³ugoœæ przedzia³u
 fn=0;
 c=0;
+j=0;
 while abs(fn)>delta || abs(b-a)>epsylon
     c=(a+b)/2;
     fn=f(c);
+    j=j+1;
+    Xiteracje(j,1)=j;
+    Xiteracje(j,2)=c;
+    Xiteracje(j,3)=fn;
     fac=f(a)*f(c);
     fcb=f(c)*f(b);
     if fac<0
